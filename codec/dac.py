@@ -11,7 +11,7 @@ class DAC(nn.Module):
 
         assert sr == 44100
 
-        model_path = dac.utils.download(model_type="44khz")
+        model_path = dac.utils.download(model_type="44khz",cache_dir='/Brain/private/nfarrugi/.cache')
         self.codec = dac.DAC.load(model_path)
         self.n_quantizers = n_quantizers
 

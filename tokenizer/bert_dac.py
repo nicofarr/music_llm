@@ -19,7 +19,7 @@ class BertDacTokenizer:
 
         super().__init__()
 
-        self.tok = AutoTokenizer.from_pretrained("bert-base-uncased")
+        self.tok = AutoTokenizer.from_pretrained("bert-base-uncased",cache_dir='/Brain/private/nfarrugi/.cache/')
 
         # Audio encoder attributes
         self.codebook_size = audio_codec.codec.codebook_size  # E.g., 1024

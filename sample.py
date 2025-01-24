@@ -37,7 +37,7 @@ def sample(args):
 
     # LLM decoder
     llm = get_llm(configs, vocab_size)
-    llm.load_state_dict(torch.load(ckpt_path))
+    llm.load_state_dict(torch.load(ckpt_path,map_location=device))
     llm.to(device)
 
     # Users can change the captions here
