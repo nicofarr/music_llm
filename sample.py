@@ -46,7 +46,7 @@ def sample(args):
     for caption in captions:
 
         batch_caption = [caption]
-
+        print(f"Generation for {caption}")
         # Tokenize captions to IDs
         caption_ids = tokenizer.captions_to_ids(
             captions=batch_caption, 
@@ -81,7 +81,7 @@ def sample(args):
             for b in range(B):
                 results_dir = Path("./results", Path(config_path).stem)
                 results_dir.mkdir(parents=True, exist_ok=True)
-                audios_path = Path(results_dir, "{}_sample_{}.wav".format(captions[0], n))
+                audios_path = Path(results_dir, "{}_sample_{}.wav".format(caption, n))
                 soundfile.write(file=audios_path, data=audio.T, samplerate=sr)
                 print("Write out to {}".format(audios_path))
 
